@@ -6,16 +6,21 @@ import { createClient } from './endpoints/createClient';
 import { ping } from './endpoints/ping';
 import express from "express";
 import cors from "cors";
-
+import {AddressInfo} from "net"
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.listen(3003,() => {
-    console.log("Servidor rodando na porta 3003");
-    
-})
+const server=app.listen(process.env.PORT || 3003,()=>{
+    if(server){
+        const adress = server.address() as AddressInfo;
+        console.log(`server is runing in ${adress.port}`);
+        
+    }else{
+        console.error("Faillur uppon start in server! ")
+    }
+});
 
 app.get("/ping",ping );
 
