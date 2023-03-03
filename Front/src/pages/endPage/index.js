@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
-import { goToHome } from '../../routers/Coordenator';
+import { goToHome } from '../../routers/Coordinator';
 import { MyEndPage } from './style';
 
 export default function EndPage() {

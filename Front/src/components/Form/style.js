@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const MyButtom = styled.button`
-  display: flex;
-`
+// export const MyButtom = styled.button`
+//   display: flex;
+// `
 
 export const MyOrderForm = styled.form`
   
@@ -84,7 +84,7 @@ export const MyOrderForm = styled.form`
             width: 50vw;
         }
     }
-    #end-order{
+    #order{
        display :flex ;
        flex-direction:column;
        align-items:center;

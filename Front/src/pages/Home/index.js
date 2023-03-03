@@ -1,38 +1,23 @@
-//  import { useForm } from "../../hooks/useForm";
-import React, { useState } from "react";
-import Header from "../../components/Header";
-import OrderForm from "../../components/OrderForm";
-import ProductdList from "../../components/ProducstList";
-import { MyBody } from "./style";
+import React, { useState } from 'react';
+import Form from '../../components/Form';
+import Header from '../../components/Header';
+import ProductList from '../../components/ProductList';
 
-const Home = () => {
-    const [products, setProducts] = useState([])
-    return (
-        <>
-            <Header />
-            <MyBody>
-                <ProductdList
-                    products={products}
-                    setProducts={setProducts}
-                />
-                <OrderForm
-                    products={products}
-                    setProducts={setProducts}
-                />
-            </MyBody>
-
-        </>
-    )
-
+export default function Home() {
+   //lista de produtos
+   const [productList,setProductList]=useState([])
+ return (
+   <div>    
+    <Header 
+    />
+    <ProductList
+      productList={productList}
+      setProductList={setProductList}
+    />
+    <Form
+       productList={productList}
+       setProductList={setProductList}
+    />
+   </div>
+ );
 }
-
-export default Home;
-
-
-
-
-
-
-
-
-
