@@ -1,3 +1,63 @@
+###criar Client
+POST http://localhost:3003/client/new-client
+Content-Type: application/json
+
+{
+    "name":"Fay"
+}
+
+###Pegar todos os cientes
+GET http://localhost:3003/client/all-clients
+
+###Pegar todos os produtos
+GET http://localhost:3003/product/all-products
+
+###Pegar todos os stocks
+GET http://localhost:3003/product/all-stocks
+
+### creat order
+POST http://localhost:3003/order/new-order
+Content-Type: application/json
+
+{
+    "fkClient": "620625a7-6e6a-4355-8eaf-dbc7dce434c5",
+    "deliveryDate":"2023-02-15",
+    "productList":[
+        {
+            "id":1,
+            "qty":10
+        },
+        {
+            "id":10,
+            "qty":10
+        },
+        {
+            "id":11,
+            "qty":10
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Test    
 GET http://localhost:3003/ping
 
@@ -6,9 +66,8 @@ POST http://localhost:3003/client
 Content-Type: application/json
 
 {
-    "name":"João Prado"
+    "name":"Maria Prado"
 }
-
 
 ### Return all Clients
 GET http://localhost:3003/clients
@@ -32,15 +91,15 @@ Content-Type: application/json
     "products":[
         {
             "id":1,
-            "qty":2
+            "qty":10
         },
         {
             "id":2,
-            "qty":3000
+            "qty":1000
         },
         {
             "id":3,
-            "qty":4
+            "qty":10
         }
     ]
 }
