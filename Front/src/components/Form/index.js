@@ -75,7 +75,7 @@ export default function Form({ productList, setProductList }) {
                 "productList": productListDB
             }
 
-            axios.post('http://localhost:3003/order/new-order', body, {})
+            axios.post(`${BASEURL}/order/new-order`, body, {})
                 .then((response) => {
                     console.log(response);
                     goToEndOrder(navigate)
