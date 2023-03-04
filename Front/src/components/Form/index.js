@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useRequestData } from '../../hooks/useRequestData';
 import { goToEndOrder } from '../../routers/Coordinator';
+import { BASEURL } from '../../url/baseUrl';
 import { MyOrderForm } from './style';
 
 export default function Form({ productList, setProductList }) {
@@ -14,9 +15,9 @@ export default function Form({ productList, setProductList }) {
     //Da\dos do Form
     const [form, onChange, restForm] = useForm({ client: "", product: "", qty: 1, deliveryDate: "" })
     //Dados Clientes
-    const [dataClient, isloadingClient, erroClient, upClient, setUpClient] = useRequestData('http://localhost:3003/client/all-clients');
+    const [dataClient, isloadingClient, erroClient, upClient, setUpClient] = useRequestData(`${BASEURL}/client/all-clients`);
     //Dados Produtos
-    const [dataProduct, isloadingProduct, erroProduct] = useRequestData('http://localhost:3003/product/all-products');
+    const [dataProduct, isloadingProduct, erroProduct] = useRequestData(`${BASEURL}/product/all-products`);
     //---------------------------------- CLIENTEAS ----------------------------------------------------------------
     //CLIENTE SELECIONADO
     const selectClient = !isloadingClient && dataClient && dataClient.find((dClient) => {
@@ -30,7 +31,7 @@ export default function Form({ productList, setProductList }) {
         {
             "name": form.client
         }
-        axios.post('http://localhost:3003/client/new-client', body, {})
+        axios.post(`${BASEURL}/client/new-client`, body, {})
             .then((response) => {
                 setUpClient(!upClient);
                 console.log(response);
