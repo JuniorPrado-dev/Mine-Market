@@ -5,12 +5,9 @@ export const useRequestData = (url, headers) => {
   const [data, setData] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
-  const [up,setUp]=useState(false)
+  // const [up,setUp]=useState(false)
   // console.log(update)
-
-  useEffect(() => {
-    console.log("foi !!!")
-    setIsLoading(true)
+  const getData=()=>{
     axios
       .get(url, headers)
       .then((res) => {
@@ -20,7 +17,13 @@ export const useRequestData = (url, headers) => {
         setError(err);
         setIsLoading(false)
       })
-  }, [up])
+  }
 
-  return [data, isLoading, error,up,setUp]
+  useEffect(() => {
+    getData();
+    //setIsLoading(true)
+    
+  }, [url])
+
+  return [data, isLoading, error,getData]
 }

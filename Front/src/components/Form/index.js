@@ -15,7 +15,8 @@ export default function Form({ productList, setProductList }) {
     //Da\dos do Form
     const [form, onChange, restForm] = useForm({ client: "", product: "", qty: 1, deliveryDate: "" })
     //Dados Clientes
-    const [dataClient, isloadingClient, erroClient, upClient, setUpClient] = useRequestData(`${BASEURL}/client/all-clients`);
+    // const [dataClient, isloadingClient, erroClient, upClient, setUpClient] = useRequestData(`${BASEURL}/client/all-clients`);
+    const [dataClient, isloadingClient, erroClient, getDataClient] = useRequestData(`${BASEURL}/client/all-clients`);
     //Dados Produtos
     const [dataProduct, isloadingProduct, erroProduct] = useRequestData(`${BASEURL}/product/all-products`);
     //---------------------------------- CLIENTEAS ----------------------------------------------------------------
@@ -33,7 +34,8 @@ export default function Form({ productList, setProductList }) {
         }
         axios.post(`${BASEURL}/client/new-client`, body, {})
             .then((response) => {
-                setUpClient(!upClient);
+                // setUpClient(!upClient);
+                getDataClient()
                 console.log(response);
 
             }
